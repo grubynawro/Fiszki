@@ -10,7 +10,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using System.Threading.Tasks;
+//using System.Threading.Tasks;
 using System.Data.SQLite;
 using System.Data;
 
@@ -40,7 +40,14 @@ namespace Fiszki
         }
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
+            if ( m_oDataAdapter != null)
+            {
+                m_oDataAdapter.Dispose();
+                m_oDataAdapter = null;
+            }
+
             new MainWindow().Show();
+
         }
         private void Click_Delete(object sender, RoutedEventArgs e)  //funkcja usuwająca zaznaczone słówka
         {
