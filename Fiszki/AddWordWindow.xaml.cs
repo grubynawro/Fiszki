@@ -22,23 +22,18 @@ namespace Fiszki
     /// </summary>
     public partial class AddWordWindow
     {
-
         private SQLiteDataAdapter m_oDataAdapter;
         private DataSet m_oDataSet = null;
         private DataTable m_oDataTable = null;
-
-
 
         public AddWordWindow()
         {
             InitializeComponent();
         }
-
         private void Click_GoBack(object sender, RoutedEventArgs e)
         {
             Close();
         }
-
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
             if (m_oDataAdapter != null)
@@ -50,35 +45,13 @@ namespace Fiszki
             new MainWindow().Show();
 
         }
-
-
-   /*     private void EnableAddKey(object sender, RoutedEventArgs e)
-        {
-            String polish = plWord.Text;
-            String spanish = spWord.Text;
-            if (polish.Equals(null) || spanish.Equals(null))
-            {
-                AddButton.IsEnabled = true;
-            }
-            else
-            {
-                AddButton.IsEnabled = false;
-            }
-        }
-    */
-
         private void Click_Add(object sender, RoutedEventArgs e)
         {
-
-
             BindingExpression plword = plWord.GetBindingExpression(TextBox.TextProperty);
             plword.UpdateSource();
             BindingExpression spword = spWord.GetBindingExpression(TextBox.TextProperty);
             spword.UpdateSource();
-
-
-            SQLiteConnection oSqLiteConnection =
-                new SQLiteConnection("Data Source=Fisz.s3db");
+            SQLiteConnection oSqLiteConnection = new SQLiteConnection("Data Source=Fisz.s3db");
             oSqLiteConnection.Open();
 
             // SQLiteCommand command = new SQLiteCommand(add, oSQLiteConnection);
@@ -86,10 +59,12 @@ namespace Fiszki
             {
                 using (var transaction = oSqLiteConnection.BeginTransaction())
                 {
-                    add.CommandText = "INSERT INTO WORD(PLWORD,SPWORD) VALUES('" + plword + "','" + spword + "')";
+                    add.CommandText = "INSERT INTO WORD(PLWORD,SPWORD) VALUES('" + plWord.Text + "','" + spWord.Text + "')";
 
                     add.ExecuteNonQuery();
                     transaction.Commit();
+                    plWord.Text = "Dodaj kolejne słowo";
+                    spWord.Text = "";
                     oSqLiteConnection.Close();
 
 
