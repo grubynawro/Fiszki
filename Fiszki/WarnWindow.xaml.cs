@@ -15,22 +15,18 @@ using System.Windows.Shapes;
 namespace Fiszki
 {
     /// <summary>
-    /// Interaction logic for ResetScoreWindow.xaml
+    /// Interaction logic for WarnWindow.xaml
     /// </summary>
-    public partial class ResetScoreWindow : Window
+    public partial class WarnWindow
     {
-        public ResetScoreWindow()
+        public WarnWindow()
         {
             InitializeComponent();
         }
+
         private void Click_GoBack(object sender, RoutedEventArgs e)
         {
-            this.Close();
+            Close();
         }
-
-    //    private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
-   //     {
-  //          new MainWindow().Show();
-  //      }
     }
 }
