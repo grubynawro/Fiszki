@@ -23,9 +23,7 @@ namespace Fiszki
         public MainWindow()
         {
              InitializeComponent();
-
-           
-        }
+            }
 
         private void Click_NewLearn(object sender, RoutedEventArgs e)
         {

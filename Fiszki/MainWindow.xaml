@@ -1,21 +1,33 @@
 ﻿<Window x:Class="Fiszki.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Fiszki" Height="350" Width="250" WindowStartupLocation="CenterScreen">
-    <Grid RenderTransformOrigin="0.482,0.52" Margin="0,0,0.4,-0.2">
-        <Grid.Effect>
-            <DropShadowEffect/>
-        </Grid.Effect>
-        <Grid.Background>
+        Title="Fiszki" Height="350" Width="250" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+    <Grid RenderTransformOrigin="0.482,0.52" >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="60" />
+            <RowDefinition Height="40" />
+            <RowDefinition Height="40" />
+            <RowDefinition Height="40" />
+            <RowDefinition Height="40" />
+            <RowDefinition Height="*" />                
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="45" />
+            <ColumnDefinition Width="45" />
+            <ColumnDefinition Width="45" />
+            <ColumnDefinition Width="*" />
+           </Grid.ColumnDefinitions>
+       <Grid.Background>
             <ImageBrush ImageSource="Images/backgroundmain.bmp" Stretch="UniformToFill"/>
-        </Grid.Background>
+       </Grid.Background>
 
-        <Button Content="Ucz się"  HorizontalAlignment="Left" Margin="70,60,0,0" VerticalAlignment="Top" Width="90" Click="Click_NewLearn" Height="20" Grid.ColumnSpan="2"/>
-        <Button Content="Dodaj słowo"  HorizontalAlignment="Left" Margin="70,100,0,0" VerticalAlignment="Top" Width="90" Click="Click_AddWord" Height="20" Grid.ColumnSpan="2"/>
-        <Button Content="Usuń słowo"  HorizontalAlignment="Left" Margin="70,140,0,0" VerticalAlignment="Top" Width="90" Height="20" Click="Click_DeleteWord" Grid.ColumnSpan="2"/>
-        <Button Content="Resetuj wyniki"  HorizontalAlignment="Left" Margin="20,180,0,0" VerticalAlignment="Top" Width="90" Height="20" Click="Click_ResetScore"/>
-        <Button Content="Pokaż wyniki"  HorizontalAlignment="Left" Margin="140,180,0,0" VerticalAlignment="Top" Width="90" Height="20" Click="Click_ShowScore" Grid.ColumnSpan="3"/>
-        <Button Content="Wyjdź" HorizontalAlignment="Left" Margin="70,280,0,0" VerticalAlignment="Top" Width="90" Height="20" Click="Click_Exit" Grid.ColumnSpan="2"/>
-
+        <Button Content="Ucz się" Click="Click_NewLearn" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3" Margin="5"/>
+        <Button Content="Dodaj słowo" Click="Click_AddWord" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="3" Margin="5"/>
+        <Button Content="Usuń słowo" Click="Click_DeleteWord" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="3" Margin="5"/>
+        <Button Content="Resetuj wyniki" Click="Click_ResetScore" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" Margin="5"/>
+        <Button Content="Pokaż wyniki" Click="Click_ShowScore" Grid.Row="4" Grid.Column="3" Grid.ColumnSpan="2" Margin="5"/>
+        <Button Content="Wyjdź" Click="Click_Exit" Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="3" Margin="5" />
     </Grid>
 </Window>
