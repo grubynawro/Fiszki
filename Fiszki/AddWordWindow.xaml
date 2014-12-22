@@ -11,13 +11,19 @@
                 <Style TargetType="Button">
                     <Setter Property="IsEnabled" Value="True"/>
                     <Style.Triggers>
-                        <MultiDataTrigger>
+              <!--             <MultiDataTrigger>
                             <MultiDataTrigger.Conditions>
                                 <Condition Binding="{Binding ElementName=plWord, Path=Text.Length}" Value="0"/>
                                 <Condition Binding="{Binding ElementName=spWord, Path=Text.Length}" Value="0"/>
                             </MultiDataTrigger.Conditions>
                             <Setter Property="IsEnabled" Value="False"/>
-                        </MultiDataTrigger>
+                        </MultiDataTrigger> -->
+                        <DataTrigger Binding="{Binding ElementName=plWord, Path=Text.Length}" Value="0">
+                            <Setter Property="IsEnabled" Value="False"/>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding ElementName=spWord, Path=Text.Length}" Value="0">
+                            <Setter Property="IsEnabled" Value="False"/>
+                        </DataTrigger>
                     </Style.Triggers>
                   </Style>
             </Button.Style>
