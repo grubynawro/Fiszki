@@ -7,10 +7,7 @@
             <DropShadowEffect/>
         </Grid.Effect>
         <Grid.Background>
-            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                <GradientStop Color="#FFF10A0A" Offset="0"/>
-                <GradientStop Color="#FFE9F308" Offset="1"/>
-            </LinearGradientBrush>
+            <ImageBrush/>
         </Grid.Background>
 
         <Button Content="Ucz się"  HorizontalAlignment="Left" Margin="70,60,0,0" VerticalAlignment="Top" Width="90" Click="Click_NewLearn" Height="20" Grid.ColumnSpan="2"/>
