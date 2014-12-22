@@ -7,7 +7,7 @@
             <DropShadowEffect/>
         </Grid.Effect>
         <Grid.Background>
-            <ImageBrush/>
+            <ImageBrush ImageSource="Images/backgroundmain.bmp" Stretch="UniformToFill"/>
         </Grid.Background>
 
         <Button Content="Ucz się"  HorizontalAlignment="Left" Margin="70,60,0,0" VerticalAlignment="Top" Width="90" Click="Click_NewLearn" Height="20" Grid.ColumnSpan="2"/>
