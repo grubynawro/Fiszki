@@ -89,9 +89,6 @@
     <Compile Include="ShowScoreWindow.xaml.cs">
       <DependentUpon>ShowScoreWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="WarnWindow.xaml.cs">
-      <DependentUpon>WarnWindow.xaml</DependentUpon>
-    </Compile>
     <Page Include="DeleteWordWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -121,10 +118,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="ShowScoreWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="WarnWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
