@@ -1,15 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
+﻿using System.Windows;
+
 //using System.Threading.Tasks;
 using System.Data.SQLite;
 using System.Data;
@@ -20,12 +10,12 @@ namespace Fiszki
     /// Interaction logic for DeleteWordWindow.xaml
     /// </summary>
     
-    public partial class DeleteWordWindow : Window
+    public partial class DeleteWordWindow
     {
 
-        private SQLiteDataAdapter m_oDataAdapter = null;
-        private DataSet m_oDataSet = null;
-        private DataTable m_oDataTable = null;
+        private SQLiteDataAdapter m_oDataAdapter;
+        private DataSet m_oDataSet;
+        private DataTable m_oDataTable;
         
         
         
@@ -36,7 +26,7 @@ namespace Fiszki
         }
         private void Click_GoBack(object sender, RoutedEventArgs e)
         {
-            this.Close();
+            Close();
         }
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
