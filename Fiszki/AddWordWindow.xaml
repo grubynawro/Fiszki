@@ -3,8 +3,8 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="Fiszki" Height="300" Width="300" Closing="Window_Closing" WindowStartupLocation="CenterScreen">
     <Grid Margin="0,0,3.6,0.4">
-        <TextBox Name ="plWord" Text="{Binding Path=PlWord, UpdateSourceTrigger=Explicit}" HorizontalAlignment="Left" Height="23" Margin="70,20,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="200"/>
-        <TextBox Name ="spWord" Text="{Binding Path=SpWord, UpdateSourceTrigger=Explicit}" HorizontalAlignment="Left" Height="23" Margin="70,60,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="200"/>
+        <TextBox Name ="plWordBox" Text="{Binding Path=PlWord, UpdateSourceTrigger=Explicit}" HorizontalAlignment="Left" Height="23" Margin="70,20,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="200"/>
+        <TextBox Name ="spWordBox" Text="{Binding Path=SpWord, UpdateSourceTrigger=Explicit}" HorizontalAlignment="Left" Height="23" Margin="70,60,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="200"/>
 
         <Button Content="Dodaj" HorizontalAlignment="Left" Margin="100,120,0,0" VerticalAlignment="Top" Click="Click_Add" Width="75"/>
         <Button Content="Zakończ" HorizontalAlignment="Left" Margin="100,210,0,0" VerticalAlignment="Top" Click="Click_GoBack" Width="75"/>

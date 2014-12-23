@@ -53,11 +53,17 @@ namespace Fiszki
         private void Click_Add(object sender, RoutedEventArgs e)
         {
             
-           
-                BindingExpression plword = plWord.GetBindingExpression(TextBox.TextProperty);
-                plword.UpdateSource();
-                BindingExpression spword = spWord.GetBindingExpression(TextBox.TextProperty);
-                spword.UpdateSource();
+              
+
+      
+
+            Word word = new Word();
+
+                  BindingExpression plword = plWordBox.GetBindingExpression(TextBox.TextProperty);
+                  plword.UpdateSource();
+                  BindingExpression spword = spWordBox.GetBindingExpression(TextBox.TextProperty);
+                 spword.UpdateSource();
+
 
                 SQLiteConnection oSQLiteConnection =
                    new SQLiteConnection("Data Source=Fisz.s3db");
