@@ -4,7 +4,7 @@ using System.Windows.Controls;
 using System.Windows.Data;
 using System.Data.SQLite;
 using System.Data;
-
+using Xceed.Wpf.Toolkit;
 
 namespace Fiszki
 {
