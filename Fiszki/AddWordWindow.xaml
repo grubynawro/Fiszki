@@ -6,8 +6,8 @@
     <Grid Margin="0,0,3.6,0.4">
 
 
-        <extToolkit:WatermarkTextBox Watermark="Wpisz słowo" Name ="plWord" Text="{Binding Path=PlWord, UpdateSourceTrigger=Explicit}" HorizontalAlignment="Left" Height="23" Margin="70,20,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="200"/>
-        <extToolkit:WatermarkTextBox Watermark="Wpisz słowo" Name ="spWord"  Text="{Binding Path=SpWord, UpdateSourceTrigger=Explicit}" HorizontalAlignment="Left" Height="23" Margin="70,60,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="200"/>
+        <extToolkit:WatermarkTextBox Watermark="Wpisz słowo" Name ="PlWord" Text="{Binding Path=PlWord, UpdateSourceTrigger=Explicit}" HorizontalAlignment="Left" Height="23" Margin="70,20,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="200"/>
+        <extToolkit:WatermarkTextBox Watermark="Wpisz słowo" Name ="SpWord"  Text="{Binding Path=SpWord, UpdateSourceTrigger=Explicit}" HorizontalAlignment="Left" Height="23" Margin="70,60,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="200"/>
        
         
         <Button Name="AddButton" Content="Dodaj" HorizontalAlignment="Left" Margin="100,120,0,0" VerticalAlignment="Top" Click="Click_Add" Width="75" >
@@ -15,10 +15,10 @@
                 <Style TargetType="Button">
                     <Setter Property="IsEnabled" Value="True"/>
                     <Style.Triggers>
-                        <DataTrigger Binding="{Binding ElementName=plWord, Path=Text.Length}" Value="0">
+                        <DataTrigger Binding="{Binding ElementName=PlWord, Path=Text.Length}" Value="0">
                             <Setter Property="IsEnabled" Value="False"/>
                         </DataTrigger>
-                        <DataTrigger Binding="{Binding ElementName=spWord, Path=Text.Length}" Value="0">
+                        <DataTrigger Binding="{Binding ElementName=SpWord, Path=Text.Length}" Value="0">
                             <Setter Property="IsEnabled" Value="False"/>
                         </DataTrigger>
                     </Style.Triggers>
@@ -29,8 +29,6 @@
         <Label Content="Polski:" HorizontalAlignment="Left" Margin="0,20,0,0" VerticalAlignment="Top" />
         <Label Content="Hiszpański:" HorizontalAlignment="Left" Margin="0,60,0,0" VerticalAlignment="Top"/>
 
-
-       
 
     </Grid>
     

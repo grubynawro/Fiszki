@@ -6,6 +6,7 @@ using System.Data.SQLite;
 using System.Data;
 using Xceed.Wpf.Toolkit;
 
+
 namespace Fiszki
 {
     /// <summary>
@@ -39,9 +40,9 @@ namespace Fiszki
         }
         private void Click_Add(object sender, RoutedEventArgs e)
         {
-            BindingExpression plword = plWord.GetBindingExpression(TextBox.TextProperty);
+            BindingExpression plword = PlWord.GetBindingExpression(TextBox.TextProperty);
             plword.UpdateSource();
-            BindingExpression spword = spWord.GetBindingExpression(TextBox.TextProperty);
+            BindingExpression spword = SpWord.GetBindingExpression(TextBox.TextProperty);
             spword.UpdateSource();
             SQLiteConnection oSqLiteConnection = new SQLiteConnection("Data Source=Fisz.s3db");
             oSqLiteConnection.Open();
@@ -51,12 +52,10 @@ namespace Fiszki
             {
                 using (var transaction = oSqLiteConnection.BeginTransaction())
                 {
-                    add.CommandText = "INSERT INTO WORD(PLWORD,SPWORD) VALUES('" + plWord.Text + "','" + spWord.Text + "')";
+                    add.CommandText = "INSERT INTO WORD(PLWORD,SPWORD) VALUES('" + PlWord.Text + "','" + SpWord.Text + "')";
 
                     add.ExecuteNonQuery();
                     transaction.Commit();
-                    plWord.Text = "Dodaj kolejne słowo";
-                    spWord.Text = "";
                     oSqLiteConnection.Close();
 
 
