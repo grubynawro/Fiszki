@@ -69,8 +69,7 @@
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
     <Reference Include="WPFToolkit.Extended">
-      <HintPath>..\..\..\..\Desktop\WPFToolkit.Extended.dll</HintPath>
-      <Private>True</Private>
+      <HintPath>..\..\..\Extended WPF Toolkit Binaries\WPFToolkit.Extended.dll</HintPath>
     </Reference>
     <Reference Include="Xceed.Wpf.AvalonDock, Version=2.3.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
