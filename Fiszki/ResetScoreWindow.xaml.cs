@@ -1,4 +1,6 @@
 ﻿using System.Windows;
+using System.Data.SQLite;
+using System.Data;
 
 
 namespace Fiszki
@@ -8,12 +10,44 @@ namespace Fiszki
     /// </summary>
     public partial class ResetScoreWindow
     {
+        private SQLiteDataAdapter m_oDataAdapter;
+        private DataSet m_oDataSet = null;
+        private DataTable m_oDataTable = null;
+
+
+
         public ResetScoreWindow()
         {
             InitializeComponent();
         }
         private void Click_GoBack(object sender, RoutedEventArgs e)
         {
+            Close();
+        }
+        private void Click_Reset(object sender, RoutedEventArgs e)
+        {
+
+
+            SQLiteConnection oSqLiteConnection = new SQLiteConnection("Data Source=Fisz.s3db");
+            oSqLiteConnection.Open();
+
+            // SQLiteCommand command = new SQLiteCommand(add, oSQLiteConnection);
+            using (var add = new SQLiteCommand(oSqLiteConnection))
+            {
+                using (var transaction = oSqLiteConnection.BeginTransaction())
+                {
+                    add.CommandText = "UPDATE WORD SET COUNTER = 0";
+
+                    add.ExecuteNonQuery();
+                    transaction.Commit();
+                    oSqLiteConnection.Close();
+
+
+                }
+            }
+            
+            
+            
             Close();
         }
         

@@ -4,13 +4,31 @@
         xmlns:extToolkit="http://schemas.xceed.com/wpf/xaml/toolkit"  
         Title="Fiszki" Height="300" Width="300" Closing="Window_Closing" WindowStartupLocation="CenterScreen"><!-- deklaracja dodaktowa  extended toolkit-->
     <Grid Margin="0,0,3.6,0.4">
-
-
-        <extToolkit:WatermarkTextBox Watermark="Wpisz słowo" Name ="PlWord" Text="{Binding Path=PlWord, UpdateSourceTrigger=Explicit}" HorizontalAlignment="Left" Height="23" Margin="70,20,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="200"/>
-        <extToolkit:WatermarkTextBox Watermark="Wpisz słowo" Name ="SpWord"  Text="{Binding Path=SpWord, UpdateSourceTrigger=Explicit}" HorizontalAlignment="Left" Height="23" Margin="70,60,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="200"/>
-       
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="25"/>
+            <RowDefinition Height="35"/>
+            <RowDefinition Height="25"/>
+            <RowDefinition Height="35"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="50"/>
+            <ColumnDefinition Width="50"/>
+            <ColumnDefinition Width="50"/>
+            <ColumnDefinition Width="50"/>
+            <ColumnDefinition Width="50"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>    
+        <extToolkit:WatermarkTextBox Watermark="Wpisz słowo" Name ="PlWord" Text="{Binding Path=PlWord, UpdateSourceTrigger=Explicit}" TextWrapping="Wrap"  Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="5" Margin="6" VerticalContentAlignment="Center"/>
+        <extToolkit:WatermarkTextBox Watermark="Wpisz słowo" Name ="SpWord"  Text="{Binding Path=SpWord, UpdateSourceTrigger=Explicit}" TextWrapping="Wrap"  Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="5" Margin="6" VerticalContentAlignment="Center"/>
+        <MenuItem Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="5" Margin="5"></MenuItem>
         
-        <Button Name="AddButton" Content="Dodaj" HorizontalAlignment="Left" Margin="100,120,0,0" VerticalAlignment="Top" Click="Click_Add" Width="75" >
+        <Button Name="AddButton" Content="Dodaj" Click="Click_Add" Grid.Row="6" Grid.Column="3" Margin="1,5">
             <Button.Style>
                 <Style TargetType="Button">
                     <Setter Property="IsEnabled" Value="True"/>
@@ -25,9 +43,9 @@
                   </Style>
             </Button.Style>
             </Button>
-        <Button Content="Zakończ" HorizontalAlignment="Left" Margin="100,210,0,0" VerticalAlignment="Top" Click="Click_GoBack" Width="75"/>
-        <Label Content="Polski:" HorizontalAlignment="Left" Margin="0,20,0,0" VerticalAlignment="Top" />
-        <Label Content="Hiszpański:" HorizontalAlignment="Left" Margin="0,60,0,0" VerticalAlignment="Top"/>
+        <Button Content="Zakończ"  Click="Click_GoBack" Grid.Row="7" Grid.Column="3" Margin="1,5"/>
+        <Label Content="Polski:" Grid.Row="1" Grid.Column="1" VerticalContentAlignment="Bottom" Grid.ColumnSpan="2"/>
+        <Label Content="Hiszpański:" Grid.Row="3" Grid.Column="1" VerticalContentAlignment="Bottom" Grid.ColumnSpan="2"/>
 
 
     </Grid>

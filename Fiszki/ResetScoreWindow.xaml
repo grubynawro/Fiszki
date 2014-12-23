@@ -23,6 +23,6 @@
         <Label Content="Usuniesz wszystkie zapisane wyniki." Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="5" HorizontalAlignment="Center"></Label>
         <Label Content="Jesteś pewien?" Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="3" HorizontalAlignment="Center"></Label>
         <Button Content="Nie" Click="Click_GoBack" Grid.Row="4" Grid.Column="2" />
-        <Button Content="Tak" Click="Click_GoBack" Grid.Row="4" Grid.Column="4" />
+        <Button Content="Tak" Click="Click_Reset" Grid.Row="4" Grid.Column="4" />
     </Grid>
 </Window>
