@@ -135,6 +135,7 @@
     <Compile Include="ShowScoreWindow.xaml.cs">
       <DependentUpon>ShowScoreWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="timer.cs" />
     <Page Include="DeleteWordWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

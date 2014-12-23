@@ -5,7 +5,7 @@
         xmlns:controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
         Title="Fiszki" Height="300" Width="300" Closing="Window_Closing" WindowStartupLocation="CenterScreen">
     <!-- deklaracja dodaktowa  extended toolkit-->
-    <Grid Margin="0,0,3.6,0.4">
+    <Grid Margin="0,0,3.6,0.4" Background="#FF252525">
         <Grid.RowDefinitions>
             <RowDefinition Height="20"/>
             <RowDefinition Height="25"/>

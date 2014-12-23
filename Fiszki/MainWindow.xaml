@@ -4,7 +4,7 @@
         xmlns:controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
         Title="Fiszki" MinHeight="380" MinWidth="270" Height="380" Width="270" WindowStartupLocation="CenterScreen" SizeToContent="WidthAndHeight" 
         BorderThickness="1" GlowBrush="{DynamicResource AccentColorBrush}">
-    <Grid RenderTransformOrigin="0.482,0.52" >
+    <Grid RenderTransformOrigin="0.482,0.52" Background="#FF252525" >
         <Grid.RowDefinitions>
             <RowDefinition Height="*" />
             <RowDefinition Height="60" />
@@ -24,9 +24,7 @@
             <ColumnDefinition Width="30" />
             <ColumnDefinition Width="*" />
            </Grid.ColumnDefinitions>
-       <Grid.Background>
-            <ImageBrush ImageSource="Images/backgroundmain.bmp" Stretch="UniformToFill"/>
-       </Grid.Background>
+    
 
         <Button Style="{DynamicResource SquareButtonStyle}" Content="UCZ SIĘ" Click="Click_NewLearn" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="6" Grid.RowSpan="2" Margin="2" controls:ButtonHelper.PreserveTextCase="True"/>
         <Button Style="{DynamicResource SquareButtonStyle}" Content="DODAJ NOWE SŁOWA" Click="Click_AddWord" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="6" Margin="2" controls:ButtonHelper.PreserveTextCase="True"/>

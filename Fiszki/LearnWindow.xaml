@@ -2,15 +2,19 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
-        Title="Fiszki" Height="300" Width="350" Closing="Window_Closing"  WindowStartupLocation="CenterScreen">
-    <Grid Margin="0,0,3.6,0.4">
+        xmlns:extToolkit="http://schemas.xceed.com/wpf/xaml/toolkit" 
+        ContentRendered="Window_ContentRendered"
+        Title="Fiszki" Height="400" Width="500" WindowStartupLocation="CenterScreen">
+    <Grid Background="#FF252525">
         <Grid.RowDefinitions>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="25"/>
+            <RowDefinition Height="40"/>
             <RowDefinition Height="30"/>
             <RowDefinition Height="30"/>
             <RowDefinition Height="30"/>
             <RowDefinition Height="30"/>
             <RowDefinition Height="30"/>
+            <RowDefinition Height="35"/>
             <RowDefinition Height="30"/>
             <RowDefinition Height="30"/>
             <RowDefinition Height="*"/>
@@ -21,12 +25,34 @@
             <ColumnDefinition Width="60"/>
             <ColumnDefinition Width="60"/>
             <ColumnDefinition Width="60"/>
-            <ColumnDefinition Width="60"/>
+            <ColumnDefinition Width="70"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        <Button Content="Następne słowo" Grid.Row="6" Grid.Column="4" Grid.ColumnSpan="2" Margin="3"/>
-        <Button Content="Zakończ" Click="Click_GoBack" Grid.Column="5" Grid.Row="8" Margin="3"/>
-        <Label Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="5" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="20" FontFamily="Segoe UI Black" FontWeight="Bold" ></Label>
-
+        <Button Content="Następne słowo" Style="{DynamicResource SquareButtonStyle}" Click="Next_Word" Grid.Row="9" Grid.Column="4" 
+                Grid.ColumnSpan="2" Margin="1" controls:ButtonHelper.PreserveTextCase="True"/>
+        <Button Content="Przerwij" Style="{DynamicResource SquareButtonStyle}" Click="Click_GoBack" Grid.Column="6" 
+                Grid.Row="10" Margin="5" Height="35" controls:ButtonHelper.PreserveTextCase="True"/>
+        <Label Name="WordLabel" Content="Testowy tekst" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="5" 
+               HorizontalContentAlignment="Center" VerticalContentAlignment="Center" 
+               FontSize="20" FontFamily="Segoe UI Black" FontWeight="Bold" ></Label>
+        <controls:MetroProgressBar Minimum="0" Maximum="100" Name="ProgressBar" Grid.Row="2" Grid.Column="1" 
+                                   Grid.ColumnSpan="5" Foreground="#FFE43109" />
+        <extToolkit:WatermarkTextBox Name="TranslateBox" Foreground="WhiteSmoke" Watermark="Wpisz polskie znaczenie słowa" 
+                                     HorizontalContentAlignment="Center" Grid.Row="4" Grid.Column="1" 
+                                     Grid.ColumnSpan="5" Margin="2">
+            <extToolkit:WatermarkTextBox.Style>
+                <Style TargetType="extToolkit:WatermarkTextBox">
+                    <Setter Property="IsEnabled" Value="True"/>
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding ElementName=ProgressBar, Path=Value}" Value="100">
+                            <Setter Property="IsEnabled" Value="False"/>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </extToolkit:WatermarkTextBox.Style>
+        </extToolkit:WatermarkTextBox>
+        <Button Name="CheckButton" Content="Sprawdź" Style="{DynamicResource SquareButtonStyle}" Click="Click_Check" Grid.Row="7" 
+                Grid.Column="2" Grid.ColumnSpan="3" Margin="2" controls:ButtonHelper.PreserveTextCase="True"/>
+        <Label Name="AnswerLabel" Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="5" Grid.RowSpan="2" Margin="13" HorizontalContentAlignment="Center"/>
     </Grid>
 </controls:MetroWindow>
