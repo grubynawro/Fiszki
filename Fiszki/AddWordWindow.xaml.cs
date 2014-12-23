@@ -20,6 +20,7 @@ namespace Fiszki
         public AddWordWindow()
         {
             InitializeComponent();
+            
         }
         private void Click_GoBack(object sender, RoutedEventArgs e)
         {
