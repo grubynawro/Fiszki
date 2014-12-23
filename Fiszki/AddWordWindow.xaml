@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:extToolkit="http://schemas.xceed.com/wpf/xaml/toolkit"  
         xmlns:controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
-        Title="Fiszki" Height="300" Width="300" Closing="Window_Closing" WindowStartupLocation="CenterScreen" BorderBrush="#FFD60F0F">
+        Title="Fiszki" Height="300" Width="300" Closing="Window_Closing" WindowStartupLocation="CenterScreen">
     <!-- deklaracja dodaktowa  extended toolkit-->
     <Grid Margin="0,0,3.6,0.4">
         <Grid.RowDefinitions>
