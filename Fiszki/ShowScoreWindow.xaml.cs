@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.Data.SQLite;
 using System.Data;
+using MahApps.Metro.Controls;
 
 
 namespace Fiszki
@@ -20,12 +21,9 @@ namespace Fiszki
     /// <summary>
     /// Interaction logic for ShowScoreWindow.xaml
     /// </summary>
-    public partial class ShowScoreWindow : Window
+    public partial class ShowScoreWindow : MetroWindow
     {
   
-      
-
-        
         public ShowScoreWindow()
         {
             InitializeComponent();

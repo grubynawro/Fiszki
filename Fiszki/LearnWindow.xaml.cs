@@ -17,7 +17,7 @@ namespace Fiszki
     /// <summary>
     /// Interaction logic for Window1.xaml
     /// </summary>
-    public partial class LearnWindow : Window
+    public partial class LearnWindow
     {
         public LearnWindow()
         {

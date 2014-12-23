@@ -1,5 +1,5 @@
 ﻿using System.Windows;
-
+using MahApps.Metro.Controls;
 namespace Fiszki
 {
     /// <summary>
