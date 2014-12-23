@@ -11,6 +11,9 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Data.SQLite;
+using System.Data;
+
 
 namespace Fiszki
 {
@@ -19,9 +22,21 @@ namespace Fiszki
     /// </summary>
     public partial class ShowScoreWindow : Window
     {
+        private SQLiteDataAdapter m_oDataAdapter;
+        private DataSet m_oDataSet;
+        private DataTable m_oDataTable;
+
+
+
+
+
+
+
+
         public ShowScoreWindow()
         {
             InitializeComponent();
+            InitBinding();
         }
 
         private void Click_GoBack(object sender, RoutedEventArgs e)
@@ -31,10 +46,52 @@ namespace Fiszki
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
+            if (m_oDataAdapter != null)
+            {
+                m_oDataAdapter.Dispose();
+                m_oDataAdapter = null;
+            }
+
+
             new MainWindow().Show();
         }
 
-        
+        private void InitBinding()
+        {
+
+            Score WordCount = new Score();
+            Score ScoreCount = new Score();
+
+
+            SQLiteConnection oSqLiteConnection = new SQLiteConnection("Data Source=Fisz.s3db");
+            oSqLiteConnection.Open();
+           
+            
+           
+            using (var count = new SQLiteCommand(oSqLiteConnection))
+            {
+                using (var transaction = oSqLiteConnection.BeginTransaction())
+                {
+                    count.CommandText = "SELECT COUNT(ID_WORD) FROM Word WHERE ISGOOD = 1";
+                    WordCount.SetResult(count.ExecuteNonQuery());
+
+                    count.CommandText = "SELECT COUNT(ID_WORD) FROM Word";
+                    WordCount.SetPossible(count.ExecuteNonQuery());
+
+                    ScoreCount.SetPossible((count.ExecuteNonQuery()) * 5);
+
+                    count.CommandText = "SELECT SUM(COUNTER) FROM WORD";
+                    ScoreCount.SetResult(count.ExecuteNonQuery());
+
+                    transaction.Commit();
+                    oSqLiteConnection.Close();
+
+
+                }
+            }
+
+
+        }
 
     }
 }
