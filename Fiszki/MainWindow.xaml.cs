@@ -47,8 +47,7 @@ namespace Fiszki
         private void Click_ResetScore(object sender, RoutedEventArgs e)
         {
             new ResetScoreWindow().Show();
-            this.Close();
-        }
+  }
         private void Click_ShowScore(object sender, RoutedEventArgs e)
         {
             new ShowScoreWindow().Show();
