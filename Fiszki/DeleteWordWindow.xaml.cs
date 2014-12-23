@@ -49,15 +49,6 @@ namespace Fiszki
             oDataRow.Delete();
             m_oDataAdapter.Update(m_oDataSet);   //update listy po usunieci
         }
-
-      
-
-
-
-        
-
-
-
         private void InitBinding()
         {
                 SQLiteConnection oSQLiteConnection = 

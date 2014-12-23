@@ -3,7 +3,8 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:extToolkit="http://schemas.xceed.com/wpf/xaml/toolkit"  
         xmlns:controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
-        Title="Fiszki" Height="300" Width="300" Closing="Window_Closing" WindowStartupLocation="CenterScreen"><!-- deklaracja dodaktowa  extended toolkit-->
+        Title="Fiszki" Height="300" Width="300" Closing="Window_Closing" WindowStartupLocation="CenterScreen" BorderBrush="#FFD60F0F">
+    <!-- deklaracja dodaktowa  extended toolkit-->
     <Grid Margin="0,0,3.6,0.4">
         <Grid.RowDefinitions>
             <RowDefinition Height="20"/>
@@ -11,20 +12,20 @@
             <RowDefinition Height="35"/>
             <RowDefinition Height="25"/>
             <RowDefinition Height="35"/>
+            <RowDefinition Height="35"/>
             <RowDefinition Height="30"/>
-            <RowDefinition Height="30"/>
-            <RowDefinition Height="30"/>
+            <RowDefinition Height="35"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="50"/>
             <ColumnDefinition Width="50"/>
-            <ColumnDefinition Width="50"/>
+            <ColumnDefinition Width="60"/>
             <ColumnDefinition Width="50"/>
             <ColumnDefinition Width="50"/>
             <ColumnDefinition Width="*"/>
-        </Grid.ColumnDefinitions>    
+        </Grid.ColumnDefinitions>
         <extToolkit:WatermarkTextBox Watermark="Wpisz słowo" Name ="PlWord" Text="{Binding Path=PlWord, UpdateSourceTrigger=Explicit}" TextWrapping="Wrap"  Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="5" Margin="6" VerticalContentAlignment="Center"/>
         <extToolkit:WatermarkTextBox Watermark="Wpisz słowo" Name ="SpWord"  Text="{Binding Path=SpWord, UpdateSourceTrigger=Explicit}" TextWrapping="Wrap"  Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="5" Margin="6" VerticalContentAlignment="Center"/>
         <ComboBox Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="5" Margin="4" IsEditable="True" Text="Wybierz kategorię" >
@@ -33,7 +34,7 @@
         </ComboBox>
         <Button Name="AddButton" Content="Dodaj" Click="Click_Add" Grid.Row="6" Grid.Column="3" Margin="1,5">
             <Button.Style>
-                <Style TargetType="Button">
+                <Style TargetType="Button" >
                     <Setter Property="IsEnabled" Value="True"/>
                     <Style.Triggers>
                         <DataTrigger Binding="{Binding ElementName=PlWord, Path=Text.Length}" Value="0">
@@ -43,15 +44,11 @@
                             <Setter Property="IsEnabled" Value="False"/>
                         </DataTrigger>
                     </Style.Triggers>
-                  </Style>
+                </Style>
             </Button.Style>
-            </Button>
-        <Button Content="Zakończ"  Click="Click_GoBack" Grid.Row="7" Grid.Column="3" Margin="1,5"/>
+        </Button>
+        <Button Style="{DynamicResource SquareButtonStyle}" Content="Zakończ"  Click="Click_GoBack" Grid.Row="7" Grid.Column="3" Margin="1,5"/>
         <Label Content="Polski:" Grid.Row="1" Grid.Column="1" VerticalContentAlignment="Bottom" Grid.ColumnSpan="2"/>
         <Label Content="Hiszpański:" Grid.Row="3" Grid.Column="1" VerticalContentAlignment="Bottom" Grid.ColumnSpan="2"/>
-
-
     </Grid>
-    
-
 </controls:MetroWindow>
