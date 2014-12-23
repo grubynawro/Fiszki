@@ -4,6 +4,8 @@
         Title="ShowScoreWindow" Height="150" Width="300" Closing="Window_Closing" WindowStartupLocation="CenterScreen">
     <Grid>
         <Button Content="Wróć" HorizontalAlignment="Left" Margin="100,75,0,0" VerticalAlignment="Top" Width="75" Click="Click_GoBack" RenderTransformOrigin="0.517,-0.347"/>
+        <Label Name ="Score1" Content="{Binding Path=Score1}" HorizontalAlignment="Left" Margin="30,10,0,0" VerticalAlignment="Top" Width="240"/>
+        <Label Name ="Score2" Content="{Binding Path=Score2}" HorizontalAlignment="Left" Margin="30,41,0,0" VerticalAlignment="Top" Width="240"/>
 
     </Grid>
 </Window>

@@ -22,17 +22,10 @@ namespace Fiszki
     /// </summary>
     public partial class ShowScoreWindow : Window
     {
-        private SQLiteDataAdapter m_oDataAdapter;
-        private DataSet m_oDataSet;
-        private DataTable m_oDataTable;
+  
+      
 
-
-
-
-
-
-
-
+        
         public ShowScoreWindow()
         {
             InitializeComponent();
@@ -46,11 +39,7 @@ namespace Fiszki
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            if (m_oDataAdapter != null)
-            {
-                m_oDataAdapter.Dispose();
-                m_oDataAdapter = null;
-            }
+           
 
 
             new MainWindow().Show();
@@ -89,6 +78,9 @@ namespace Fiszki
 
                 }
             }
+
+            Score1.Content = "Zapamiętane słowa " + WordCount.GetResult() + " z " + WordCount.GetPossible();
+            Score2.Content = "Twój wynik: " + ScoreCount.GetResult() + " z " + ScoreCount.GetPossible();
 
 
         }
