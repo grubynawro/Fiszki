@@ -68,6 +68,9 @@
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
+    <Reference Include="WPFToolkit.Extended">
+      <HintPath>..\..\..\..\Desktop\WPFToolkit.Extended.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
@@ -89,7 +92,6 @@
     <Compile Include="ShowScoreWindow.xaml.cs">
       <DependentUpon>ShowScoreWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Word.cs" />
     <Page Include="DeleteWordWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
