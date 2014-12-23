@@ -10,11 +10,7 @@ namespace Fiszki
     /// </summary>
     public partial class ResetScoreWindow
     {
-        private SQLiteDataAdapter m_oDataAdapter;
-        private DataSet m_oDataSet = null;
-        private DataTable m_oDataTable = null;
-
-
+     
 
         public ResetScoreWindow()
         {

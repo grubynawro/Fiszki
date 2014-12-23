@@ -14,9 +14,7 @@ namespace Fiszki
     /// </summary>
     public partial class AddWordWindow
     {
-        private SQLiteDataAdapter m_oDataAdapter;
-        private DataSet m_oDataSet = null;
-        private DataTable m_oDataTable = null;
+            
 
         public AddWordWindow()
         {
@@ -29,11 +27,7 @@ namespace Fiszki
         }
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            if (m_oDataAdapter != null)
-            {
-                m_oDataAdapter.Dispose();
-                m_oDataAdapter = null;
-            }
+          
 
             new MainWindow().Show();
 
