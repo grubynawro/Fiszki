@@ -125,6 +125,7 @@
     <Compile Include="ResetScoreWindow.xaml.cs">
       <DependentUpon>ResetScoreWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Score.cs" />
     <Compile Include="ShowScoreWindow.xaml.cs">
       <DependentUpon>ShowScoreWindow.xaml</DependentUpon>
     </Compile>
