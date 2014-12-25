@@ -35,7 +35,7 @@
                Margin="6"/>
         <Label Name="AmountOfWordsLabel" Content="ILOŚC SŁÓW:" Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="5" Margin="5" FontSize="18"/>
         <Label Name="CategoryLabel" Content="KATEGORIA:" Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="5" Margin="5" FontSize="18"/>
-        <TextBox Name="AmountOfWordsBox" Grid.Row="2" Grid.Column="8" Grid.ColumnSpan="2" Margin="6"/>
+        <TextBox Name="NumberOfWordsBox" Grid.Row="2" Grid.Column="8" Grid.ColumnSpan="2" Margin="6"/>
         <ComboBox Name="CategoryComboBox" ItemsSource="{Binding}" Grid.Row="4" Grid.Column="2" Grid.ColumnSpan="8" Margin="5" />
         <TextBlock Grid.Row="4" Grid.Column="2" Grid.ColumnSpan="8" Margin="8" HorizontalAlignment="Center" Text="Wybierz kategorię" IsHitTestVisible="False" Visibility="Visible">
             <TextBlock.Style>

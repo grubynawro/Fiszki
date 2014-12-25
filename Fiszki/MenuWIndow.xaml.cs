@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using System;
+using System.Windows;
 
 namespace Fiszki
 {
@@ -11,10 +12,11 @@ namespace Fiszki
         {
             InitializeComponent();
         }
-
         private void LearnStartButton_OnClick(object sender, RoutedEventArgs e)
         {
-            new LearnWindow().Show();
+            LearnWindow newWindow = new LearnWindow();
+            newWindow.MaxWordLabel.Content = NumberOfWordsBox.Text;
+            newWindow.Show();
             Close();
         }
     }

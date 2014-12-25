@@ -7,9 +7,8 @@
         Title="Fiszki" Height="400" Width="500" WindowStartupLocation="CenterScreen">
     <Grid Background="#FF252525">
         <Grid.RowDefinitions>
-            <RowDefinition Height="25"/>
             <RowDefinition Height="40"/>
-            <RowDefinition Height="30"/>
+            <RowDefinition Height="40"/>
             <RowDefinition Height="30"/>
             <RowDefinition Height="30"/>
             <RowDefinition Height="30"/>
@@ -17,18 +16,19 @@
             <RowDefinition Height="35"/>
             <RowDefinition Height="30"/>
             <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="60"/>
+            <ColumnDefinition Width="70"/>
             <ColumnDefinition Width="60"/>
             <ColumnDefinition Width="60"/>
             <ColumnDefinition Width="60"/>
             <ColumnDefinition Width="70"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        <Button Content="Następne słowo" Style="{DynamicResource SquareButtonStyle}" Click="Next_Word" Grid.Row="9" Grid.Column="4" 
+        <Button Content="Następne słowo" Name="NextButton"  Style="{DynamicResource SquareButtonStyle}" Click="Next_Word" Grid.Row="9" Grid.Column="4" 
                 Grid.ColumnSpan="2" Margin="1" controls:ButtonHelper.PreserveTextCase="True"/>
         <Button Content="Przerwij" Style="{DynamicResource SquareButtonStyle}" Click="Click_GoBack" Grid.Column="6" 
                 Grid.Row="10" Margin="5" Height="35" controls:ButtonHelper.PreserveTextCase="True"/>
@@ -51,8 +51,15 @@
                 </Style>
             </extToolkit:WatermarkTextBox.Style>
         </extToolkit:WatermarkTextBox>
-        <Button Name="CheckButton" Content="Sprawdź" Style="{DynamicResource SquareButtonStyle}" Click="Click_Check" Grid.Row="7" 
-                Grid.Column="2" Grid.ColumnSpan="3" Margin="2" controls:ButtonHelper.PreserveTextCase="True"/>
-        <Label Name="AnswerLabel" Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="5" Grid.RowSpan="2" Margin="13" HorizontalContentAlignment="Center"/>
+        <Button Name="CheckButton" Content="Sprawdź" Style="{DynamicResource SquareButtonStyle}" Click="Click_Check" 
+                Grid.Row="7" Grid.Column="2" Grid.ColumnSpan="3" Margin="2" controls:ButtonHelper.PreserveTextCase="True"/>
+        <Label Name="AnswerLabel" Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="5" Grid.RowSpan="2" Margin="13" 
+               HorizontalContentAlignment="Center"/>
+        <Label Content="Słówko:" Grid.Row="0" Grid.Column="0" Margin="5" FontSize="16" HorizontalContentAlignment="Right"/>
+        <Label Name="CounterWordLabel" Content="1" Grid.Row="0" Grid.Column="1" Margin="5" Foreground="GreenYellow" 
+               FontSize="16"/>
+        <Label Content="z" Grid.Row="0" Grid.Column="1" FontSize="16" Margin="20,5,1,5"/>
+        <Label Name="MaxWordLabel" Content="10" Grid.Row="0" Grid.Column="1" Margin="35,5,1,5" FontSize="16" 
+               Foreground="Red"></Label>
     </Grid>
 </controls:MetroWindow>
