@@ -14,7 +14,7 @@ namespace Fiszki
 
         private void Click_NewLearn(object sender, RoutedEventArgs e)
         {
-            new LearnWindow().Show();
+            new MenuWindow().Show();
             Close();
         }
         private void Click_AddWord(object sender, RoutedEventArgs e)
