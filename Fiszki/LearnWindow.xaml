@@ -4,7 +4,8 @@
         xmlns:controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
         xmlns:extToolkit="http://schemas.xceed.com/wpf/xaml/toolkit" 
         ContentRendered="Window_ContentRendered"
-        Title="Fiszki" Height="400" Width="500" WindowStartupLocation="CenterScreen">
+        Title="Fiszki" Height="400" Width="500" WindowStartupLocation="CenterScreen" SizeToContent="WidthAndHeight" 
+        BorderThickness="1" GlowBrush="{DynamicResource AccentColorBrush}">
     <Grid Background="#FF252525">
         <Grid.RowDefinitions>
             <RowDefinition Height="40"/>

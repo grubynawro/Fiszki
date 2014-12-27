@@ -45,7 +45,8 @@ namespace Fiszki
         private void Click_Check(object sender, RoutedEventArgs e)  
         {
             
-            if (WordLabel.Content.Equals(TranslateBox.Text)) 
+            ProgressBar.Visibility = Visibility.Hidden;
+            if (WordLabel.Content.Equals(TranslateBox.Text))
             {
                 AnswerLabel.Foreground = Brushes.LawnGreen;  
                 AnswerLabel.Content = "Bardzo dobrze!";
@@ -57,7 +58,7 @@ namespace Fiszki
                 AnswerLabel.Content = "Zjebałeś kolego...";  //tutaj to samo, albo zrobić po kilka, jesli zgadnie lub nie
                 BadAnswersCounter++;                          //tu trzeba zrobić update dla wyniku na danym słowie w bazie
             }
-           
+            TranslateBox.IsEnabled = false;
         }
 
         private void Next_Word(object sender, RoutedEventArgs e) //
@@ -65,6 +66,8 @@ namespace Fiszki
 
             int counter = Convert.ToInt32(CounterWordLabel.Content);
             int maxCounter = Convert.ToInt32(MaxWordLabel.Content);
+            ProgressBar.Value = 0;
+            ProgressBar.Visibility = Visibility.Visible;
             WordLabel.Content = ++counter + "słowo";
             TranslateBox.Clear();
             AnswerLabel.Content = "";
@@ -82,9 +85,12 @@ namespace Fiszki
         private void Click_ShowResults(object sender, RoutedEventArgs e)
         {
             ResultsWindow resultsWindow = new ResultsWindow();
-            resultsWindow.GoodAnswersProgressBar.Value = Convert.ToInt32(GoodAnswersCounter/Convert.ToInt32(MaxWordLabel.Content) * 100);
-            resultsWindow.BadAnswersProgressBar.Value = Convert.ToInt32(BadAnswersCounter/Convert.ToInt32(MaxWordLabel.Content) * 100);            
+            resultsWindow.BadAnswersProgressBar.Value = BadAnswersCounter * 100 / (BadAnswersCounter+GoodAnswersCounter);
+            resultsWindow.GoodAnswersProgressBar.Value = GoodAnswersCounter * 100 / (BadAnswersCounter + GoodAnswersCounter); //Convert.ToInt32(GoodAnswersCounter/Convert.ToInt32(MaxWordLabel.Content) * 100);
+            resultsWindow.GoodTextBlock.Text = resultsWindow.GoodAnswersProgressBar.Value + "%";
+            resultsWindow.BadTextBlock.Text = resultsWindow.BadAnswersProgressBar.Value + "%";
             resultsWindow.Show();
+            Close();
         }
     }
 

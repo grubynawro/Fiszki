@@ -23,5 +23,11 @@ namespace Fiszki
         {
             InitializeComponent();
         }
+
+        private void Click_GoBack(object sender, RoutedEventArgs e)
+        {
+            new MainWindow().Show();
+            Close();
+        }
     }
 }
