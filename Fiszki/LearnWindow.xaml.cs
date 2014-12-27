@@ -6,8 +6,10 @@ using System.Windows.Media;
 
 namespace Fiszki
 {
+
     public partial class LearnWindow
     {
+   
         public LearnWindow()
         {
             InitializeComponent();
@@ -17,6 +19,7 @@ namespace Fiszki
             new MainWindow().Show();
             Close();
         }
+ 
         private void Window_ContentRendered(object sender, EventArgs e)  //do obsługi progressbara w oddzielnym wątku
         {
             BackgroundWorker worker = new BackgroundWorker();
@@ -56,8 +59,17 @@ namespace Fiszki
         private void Next_Word(object sender, RoutedEventArgs e) //
         {
 
-            new LearnWindow().Show();
-            Close();
+            int counter = Convert.ToInt32(CounterWordLabel.Content);
+            int maxCounter = Convert.ToInt32(MaxWordLabel.Content);
+            WordLabel.Content = ++counter + "słowo";
+            CounterWordLabel.Content = counter;
+            if (counter == maxCounter)
+            {
+                NextButton.Content = "Wyniki";
+                NextButton.Click += Click_GoBack;
+            }
+
         }
     }
+
 }

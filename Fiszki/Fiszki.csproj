@@ -128,6 +128,9 @@
     <Compile Include="AddWordWindow.xaml.cs">
       <DependentUpon>AddWordWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="MenuWindow.xaml.cs">
+      <DependentUpon>MenuWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ResetScoreWindow.xaml.cs">
       <DependentUpon>ResetScoreWindow.xaml</DependentUpon>
     </Compile>
@@ -156,6 +159,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="AddWordWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MenuWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Properties\Dictionary1.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
