@@ -3,8 +3,8 @@ namespace Fiszki
 {
     class Score
     {
-        private int Result = 0;
-        private int Possible = 0;
+        private int Result = 10;
+        private int Possible = 110;
 
         
         public void SetResult(int result)
