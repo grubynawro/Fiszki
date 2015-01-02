@@ -29,8 +29,8 @@
         <extToolkit:WatermarkTextBox Watermark="Wpisz słowo" Name ="PlWord" Text="{Binding Path=PlWord, UpdateSourceTrigger=Explicit}" TextWrapping="Wrap"  Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="5" Margin="6" VerticalContentAlignment="Center"/>
         <extToolkit:WatermarkTextBox Watermark="Wpisz słowo" Name ="SpWord"  Text="{Binding Path=SpWord, UpdateSourceTrigger=Explicit}" TextWrapping="Wrap"  Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="5" Margin="6" VerticalContentAlignment="Center"/>
         <ComboBox Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="5" Margin="4" IsEditable="True" Text="Wybierz kategorię" >
-            <ComboBoxItem Name="BoxItem1" Content="test1"/>
-            <ComboBoxItem Name="BoxItem2" Content="test2" />
+            <ComboBoxItem Name="BoxItem1" Content="boxitem1"/>
+            <ComboBoxItem Name="BoxItem2" Content="boxitem2"/>
         </ComboBox>
         <Button Name="AddButton" Content="Dodaj" Click="Click_Add" Grid.Row="6" Grid.Column="3" Margin="1,5">
             <Button.Style>
