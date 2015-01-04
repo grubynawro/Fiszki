@@ -26,7 +26,6 @@ namespace Fiszki
         private void Click_Check(object sender, RoutedEventArgs e)  
         {
             
-            ProgressBar.Visibility = Visibility.Hidden;
             if (WordLabel.Content.Equals(TranslateBox.Text))
             {
                 AnswerLabel.Foreground = Brushes.LawnGreen;  
