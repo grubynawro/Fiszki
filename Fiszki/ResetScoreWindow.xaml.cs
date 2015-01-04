@@ -28,13 +28,13 @@ namespace Fiszki
             oSqLiteConnection.Open();
 
             // SQLiteCommand command = new SQLiteCommand(add, oSQLiteConnection);
-            using (var add = new SQLiteCommand(oSqLiteConnection))
+            using (var reset = new SQLiteCommand(oSqLiteConnection))
             {
                 using (var transaction = oSqLiteConnection.BeginTransaction())
                 {
-                    add.CommandText = "UPDATE WORD SET COUNTER = 0";
+                    reset.CommandText = "UPDATE WORD SET COUNTER = 0";
 
-                    add.ExecuteNonQuery();
+                    reset.ExecuteNonQuery();
                     transaction.Commit();
                     oSqLiteConnection.Close();
 

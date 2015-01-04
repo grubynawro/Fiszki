@@ -3,7 +3,8 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
         xmlns:extToolkit="http://schemas.xceed.com/wpf/xaml/toolkit" 
-        Title="Fiszki" Height="400" Width="500" WindowStartupLocation="CenterScreen">
+        Title="Fiszki" Height="400" Width="500" WindowStartupLocation="CenterScreen" SizeToContent="WidthAndHeight" 
+        BorderThickness="1" GlowBrush="{DynamicResource AccentColorBrush}">
     <Grid Background="#FF252525">
         <Grid.RowDefinitions>
             <RowDefinition Height="40"/>
@@ -28,7 +29,27 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <Button Content="Następne słowo" Name="NextButton"  Style="{DynamicResource SquareButtonStyle}" Click="Next_Word" Grid.Row="9" Grid.Column="4" 
-                Grid.ColumnSpan="2" Margin="1" controls:ButtonHelper.PreserveTextCase="True"/>
+                Grid.ColumnSpan="2" Margin="1" controls:ButtonHelper.PreserveTextCase="True">
+            <!--     <Style TargetType="Button">
+                           <Setter Property="Visibility" Value="Visible"/>
+              <Style.Triggers>
+                    <DataTrigger Binding="{Binding ElementName=CounterWordLabel, Path=Content}" Value="{Binding }">
+                        <Setter Property="Visibility" Value="Hidden"/>
+                    </DataTrigger>
+                </Style.Triggers>
+            </Style> -->
+        </Button>
+        <Button Content="Wyniki" Name="ShowResultsButton"  Style="{DynamicResource SquareButtonStyle}" Click="Click_ShowResults" Grid.Row="9" Grid.Column="4" 
+                Grid.ColumnSpan="2" Margin="1" controls:ButtonHelper.PreserveTextCase="True" Visibility="Hidden">
+<!--            <Style TargetType="Button">
+                <Setter Property="Visibility" Value="Hidden"/>
+                <Style.Triggers>
+                    <DataTrigger >
+                        <Setter Property="Visibility" Value="Visible"/>
+                    </DataTrigger>
+                </Style.Triggers>
+           </Style>   -->
+        </Button>
         <Button Content="Przerwij" Style="{DynamicResource SquareButtonStyle}" Click="Click_GoBack" Grid.Column="6" 
                 Grid.Row="10" Margin="5" Height="35" controls:ButtonHelper.PreserveTextCase="True"/>
         <Label Name="WordLabel" Content="Testowy tekst" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="5" 
