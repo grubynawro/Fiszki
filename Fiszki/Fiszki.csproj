@@ -119,6 +119,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Data\DatabaseConnection.cs" />
     <Compile Include="DeleteWordWindow.xaml.cs">
       <DependentUpon>DeleteWordWindow.xaml</DependentUpon>
     </Compile>
@@ -131,6 +132,7 @@
     <Compile Include="MenuWindow.xaml.cs">
       <DependentUpon>MenuWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Properties\Annotations.cs" />
     <Compile Include="ResetScoreWindow.xaml.cs">
       <DependentUpon>ResetScoreWindow.xaml</DependentUpon>
     </Compile>

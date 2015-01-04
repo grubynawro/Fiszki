@@ -1,4 +1,5 @@
 ﻿
+using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -6,6 +7,9 @@ using System.Data.SQLite;
 using System.Data;
 using Xceed.Wpf.Toolkit;
 using System.ComponentModel;
+using System.Runtime.CompilerServices;
+using Fiszki.Annotations;
+using Xceed.Wpf.DataGrid;
 
 
 namespace Fiszki
@@ -13,15 +17,30 @@ namespace Fiszki
     /// <summary>
     /// Interaction logic for Window1.xaml
     /// </summary>
-    public partial class AddWordWindow //: INotifyPropertyChanged
+    public partial class AddWordWindow : INotifyPropertyChanged
     {
-       // private System.ComponentModel.ICollectionView _comboItemsView;
+        private ICollectionView _comboItemsView;
 
         public AddWordWindow()
         {
             InitializeComponent();
-            
+
+            ComboItems = CollectionViewSource.GetDefaultView(new List<string>());
+
         }
+
+        public ICollectionView ComboItems
+        {
+            get { return _comboItemsView; }
+            set
+            {
+                _comboItemsView = value;
+                OnPropertyChanged();
+            }
+        }
+
+
+
         private void Click_GoBack(object sender, RoutedEventArgs e)
         {
             Close();
@@ -57,6 +76,15 @@ namespace Fiszki
                 }
             }
 
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        [NotifyPropertyChangedInvocator]
+        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
+        {
+            var handler = PropertyChanged;
+            if (handler != null) handler(this, new PropertyChangedEventArgs(propertyName));
         }
     }
 }
