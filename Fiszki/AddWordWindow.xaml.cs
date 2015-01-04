@@ -5,6 +5,7 @@ using System.Windows.Data;
 using System.Data.SQLite;
 using System.Data;
 using Xceed.Wpf.Toolkit;
+using System.ComponentModel;
 
 
 namespace Fiszki
@@ -12,9 +13,9 @@ namespace Fiszki
     /// <summary>
     /// Interaction logic for Window1.xaml
     /// </summary>
-    public partial class AddWordWindow
+    public partial class AddWordWindow //: INotifyPropertyChanged
     {
-            
+       // private System.ComponentModel.ICollectionView _comboItemsView;
 
         public AddWordWindow()
         {
@@ -57,7 +58,6 @@ namespace Fiszki
             }
 
         }
-        
     }
 }
 
