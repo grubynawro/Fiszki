@@ -22,30 +22,10 @@ namespace Fiszki
             Close();
         }
  
-        private void Window_ContentRendered(object sender, EventArgs e)  //do obsługi progressbara w oddzielnym wątku
-        {
-            BackgroundWorker worker = new BackgroundWorker();
-            worker.WorkerReportsProgress = true;
-            worker.DoWork += worker_DoWork;
-            worker.ProgressChanged += worker_ProgressChanged;
-            worker.RunWorkerAsync();
-        }
-        void worker_DoWork(object sender, DoWorkEventArgs e)
-        {
-            for (int i = 0; i < 101; i++)
-            {
-                (sender as BackgroundWorker).ReportProgress(i);
-                Thread.Sleep(100);
-            }
-        }
-        void worker_ProgressChanged(object sender, ProgressChangedEventArgs e)
-        {
-            ProgressBar.Value = e.ProgressPercentage;
-        }
+
         private void Click_Check(object sender, RoutedEventArgs e)  
         {
             
-            ProgressBar.Visibility = Visibility.Hidden;
             if (WordLabel.Content.Equals(TranslateBox.Text))
             {
                 AnswerLabel.Foreground = Brushes.LawnGreen;  
@@ -66,8 +46,8 @@ namespace Fiszki
 
             int counter = Convert.ToInt32(CounterWordLabel.Content);
             int maxCounter = Convert.ToInt32(MaxWordLabel.Content);
-            ProgressBar.Value = 0;
-            ProgressBar.Visibility = Visibility.Visible;
+            ProgressBar.Value += 1;
+
             WordLabel.Content = ++counter + "słowo";
             TranslateBox.Clear();
             AnswerLabel.Content = "";

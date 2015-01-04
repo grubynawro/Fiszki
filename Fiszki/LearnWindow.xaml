@@ -3,7 +3,6 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
         xmlns:extToolkit="http://schemas.xceed.com/wpf/xaml/toolkit" 
-        ContentRendered="Window_ContentRendered"
         Title="Fiszki" Height="400" Width="500" WindowStartupLocation="CenterScreen" SizeToContent="WidthAndHeight" 
         BorderThickness="1" GlowBrush="{DynamicResource AccentColorBrush}">
     <Grid Background="#FF252525">
@@ -56,8 +55,8 @@
         <Label Name="WordLabel" Content="Testowy tekst" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="5" 
                HorizontalContentAlignment="Center" VerticalContentAlignment="Center" 
                FontSize="20" FontFamily="Segoe UI Black" FontWeight="Bold" ></Label>
-        <controls:MetroProgressBar Minimum="0" Maximum="100" Name="ProgressBar" Grid.Row="2" Grid.Column="1" 
-                                   Grid.ColumnSpan="5" Foreground="#FFE43109" />
+        <controls:MetroProgressBar Minimum="0" Name="ProgressBar" Grid.Row="2" Grid.Column="1" 
+                                   Grid.ColumnSpan="5" Foreground="#FFE43109" Value="0"/>
         <extToolkit:WatermarkTextBox Name="TranslateBox" Foreground="WhiteSmoke" Watermark="Wpisz polskie znaczenie słowa" 
                                      HorizontalContentAlignment="Center" Grid.Row="4" Grid.Column="1" 
                                      Grid.ColumnSpan="5" Margin="2">
