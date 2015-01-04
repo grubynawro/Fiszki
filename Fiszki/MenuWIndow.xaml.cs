@@ -16,6 +16,7 @@ namespace Fiszki
         {
             LearnWindow newWindow = new LearnWindow();
             newWindow.MaxWordLabel.Content = NumberOfWordsBox.Text;
+            newWindow.ProgressBar.Maximum = Convert.ToInt32(NumberOfWordsBox.Text);
             newWindow.Show();
             Close();
         }
