@@ -119,7 +119,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Data\Category.cs" />
+    <Compile Include="Data\Data.cs" />
     <Compile Include="Data\DatabaseConnection.cs" />
+    <Compile Include="Data\Word.cs" />
     <Compile Include="DeleteWordWindow.xaml.cs">
       <DependentUpon>DeleteWordWindow.xaml</DependentUpon>
     </Compile>
