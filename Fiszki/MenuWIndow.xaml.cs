@@ -10,9 +10,7 @@ namespace Fiszki
     /// </summary>
     public partial class MenuWindow
     {
-        private SQLiteDataAdapter m_oDataAdapter;
-        private DataSet m_oDataSet;
-        private DataTable m_oDataTable;
+        
         public MenuWindow()
         {
             InitializeComponent();
