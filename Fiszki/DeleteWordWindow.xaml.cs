@@ -73,8 +73,7 @@ namespace Fiszki
 			
 		    Data.Data.Words.Remove(word);
 		    WordsCollectionView.Refresh();
-		    DatabaseConnection.Execute("Delete from Word where id=" + word.Id).ExecuteNonQuery();
-
+		    DatabaseConnection.Execute("Delete from Word where id=" + word.Id); //.ExecuteNonQuery();  <- z tym wywalało błąd
 	    }
     }
 }
