@@ -1,4 +1,5 @@
 ﻿
+using System;
 using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
@@ -7,87 +8,87 @@ using System.Data.SQLite;
 using System.Data;
 using Xceed.Wpf.Toolkit;
 using System.ComponentModel;
+using System.Linq;
 using System.Runtime.CompilerServices;
 using Fiszki.Annotations;
+using Fiszki.Data;
 using Xceed.Wpf.DataGrid;
 
 
 namespace Fiszki
 {
-    /// <summary>
-    /// Interaction logic for Window1.xaml
-    /// </summary>
-    public partial class AddWordWindow : INotifyPropertyChanged
-    {
-        private ICollectionView _comboItemsView;
+	/// <summary>
+	/// Interaction logic for Window1.xaml
+	/// </summary>
+	public partial class AddWordWindow : INotifyPropertyChanged
+	{
+		private ICollectionView _categoryCollectionView;
+	
+		public AddWordWindow()
+		{
+			SelectedCategory = Data.Data.Categories.FirstOrDefault();
 
-        public AddWordWindow()
-        {
-            InitializeComponent();
+			InitializeComponent();
 
-            ComboItems = CollectionViewSource.GetDefaultView(new List<string>());
+			DataContext = this;
 
-        }
+			CategoryCollectionView = CollectionViewSource.GetDefaultView(Data.Data.Categories);
+		}
 
-        public ICollectionView ComboItems
-        {
-            get { return _comboItemsView; }
-            set
-            {
-                _comboItemsView = value;
-                OnPropertyChanged();
-            }
-        }
+		public ICollectionView CategoryCollectionView
+		{
+			get { return _categoryCollectionView; }
+			set
+			{
+				_categoryCollectionView = value;
+				OnPropertyChanged();
+			}
+		}
 
+		public Category SelectedCategory { get; set; }
 
+		public string PlWord { get; set; }
 
-        private void Click_GoBack(object sender, RoutedEventArgs e)
-        {
-            Close();
-        }
-        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
-        {
-          
-
-            new MainWindow().Show();
-
-        }
-        private void Click_Add(object sender, RoutedEventArgs e)
-        {
-            BindingExpression plword = PlWord.GetBindingExpression(TextBox.TextProperty);
-            plword.UpdateSource();
-            BindingExpression spword = SpWord.GetBindingExpression(TextBox.TextProperty);
-            spword.UpdateSource();
-            SQLiteConnection oSqLiteConnection = new SQLiteConnection("Data Source=Fisz.s3db");
-            oSqLiteConnection.Open();
-
-            // SQLiteCommand command = new SQLiteCommand(add, oSQLiteConnection);
-            using (var add = new SQLiteCommand(oSqLiteConnection))
-            {
-                using (var transaction = oSqLiteConnection.BeginTransaction())
-                {
-                    add.CommandText = "INSERT INTO WORD(PLWORD,SPWORD) VALUES('" + PlWord.Text + "','" + SpWord.Text + "')";
-
-                    add.ExecuteNonQuery();
-                    transaction.Commit();
-                    oSqLiteConnection.Close();
+		public string EsWord { get; set; }
 
 
-                }
-            }
+		public event PropertyChangedEventHandler PropertyChanged;
 
-        }
+		[NotifyPropertyChangedInvocator]
+		protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
+		{
+			var handler = PropertyChanged;
+			if (handler != null) handler(this, new PropertyChangedEventArgs(propertyName));
+		}
 
-        public event PropertyChangedEventHandler PropertyChanged;
+		private void Window_Closing(object sender, CancelEventArgs e)
+		{
+			new MainWindow().Show();
+		}
+		private void Click_Add(object sender, RoutedEventArgs e)
+		{
+			var query =
+				DatabaseConnection.Execute("Insert into Word(PLWORD,SPWORD,ID_CATEGORY) values('" + PlWord + "','" + EsWord + "'," +
+				                           SelectedCategory.Id + ")").ExecuteNonQuery();
 
-        [NotifyPropertyChangedInvocator]
-        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
-        {
-            var handler = PropertyChanged;
-            if (handler != null) handler(this, new PropertyChangedEventArgs(propertyName));
-        }
-    }
+			long lstInsertId = (long)DatabaseConnection.Execute("SELECT last_insert_rowid()").ExecuteScalar();
+
+
+			Data.Data.Words.Add(new Word(
+				System.Convert.ToInt32(lstInsertId),
+				PlWord,
+				EsWord,
+				SelectedCategory.Id,
+				0,
+				0
+				));
+
+		}
+		private void Click_GoBack(object sender, RoutedEventArgs e)
+		{
+			Close();
+		}
+
+		
+	}
 }
-
-
-        

@@ -51,10 +51,7 @@ namespace Fiszki
             new MainWindow().Show();
 
         }
-        private void Click_Delete(object sender, RoutedEventArgs e)  //funkcja usuwająca zaznaczone słówka
-        {
-            
-        }
+      
 
 
 	    public event PropertyChangedEventHandler PropertyChanged;
@@ -73,7 +70,7 @@ namespace Fiszki
 			
 		    Data.Data.Words.Remove(word);
 		    WordsCollectionView.Refresh();
-		    DatabaseConnection.Execute("Delete from Word where id=" + word.Id); //.ExecuteNonQuery();  <- z tym wywalało błąd
+		    DatabaseConnection.Execute("Delete from Word where ID_WORD=" + word.Id).ExecuteNonQuery(); 
 	    }
     }
 }

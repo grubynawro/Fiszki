@@ -125,6 +125,7 @@
     <Compile Include="Data\Category.cs" />
     <Compile Include="Data\Data.cs" />
     <Compile Include="Data\DatabaseConnection.cs" />
+    <Compile Include="Data\DatabaseItem.cs" />
     <Compile Include="Data\Word.cs" />
     <Compile Include="DeleteWordWindow.xaml.cs">
       <DependentUpon>DeleteWordWindow.xaml</DependentUpon>
@@ -145,7 +146,7 @@
     <Compile Include="ResultsWindow.xaml.cs">
       <DependentUpon>ResultsWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Score.cs" />
+    <Compile Include="Data\Score.cs" />
     <Compile Include="ShowScoreWindow.xaml.cs">
       <DependentUpon>ShowScoreWindow.xaml</DependentUpon>
     </Compile>

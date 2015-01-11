@@ -26,19 +26,26 @@
             <ColumnDefinition Width="50"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        <extToolkit:WatermarkTextBox Watermark="Wpisz słowo" Name ="PlWord" Text="{Binding Path=PlWord, UpdateSourceTrigger=Explicit}" TextWrapping="Wrap"  Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="5" Margin="6" VerticalContentAlignment="Center"/>
-        <extToolkit:WatermarkTextBox Watermark="Wpisz słowo" Name ="SpWord"  Text="{Binding Path=SpWord, UpdateSourceTrigger=Explicit}" TextWrapping="Wrap"  Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="5" Margin="6" VerticalContentAlignment="Center"/>
-        <ComboBox ItemsSource="{Binding ComboItems}" Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="5" Margin="4" IsEditable="True" Text="Wybierz kategorię" >
+        <extToolkit:WatermarkTextBox Watermark="Wpisz słowo" Name="PlWordTextBox" Text="{Binding PlWord}" TextWrapping="Wrap"  Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="5" Margin="6" VerticalContentAlignment="Center"/>
+        <extToolkit:WatermarkTextBox Watermark="Wpisz słowo" Name="EsWordTextBox" Text="{Binding EsWord}" TextWrapping="Wrap"  Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="5" Margin="6" VerticalContentAlignment="Center"/>
+        <ComboBox 
+            ItemsSource="{Binding CategoryCollectionView}" 
+            DisplayMemberPath="Name"
+            SelectedItem="{Binding SelectedCategory}"
+            Grid.Row="5" Grid.Column="1" 
+            Grid.ColumnSpan="5" Margin="4" 
+            IsEditable="True" 
+            Text="Wybierz kategorię" >
         </ComboBox>
         <Button Name="AddButton" Content="Dodaj" Click="Click_Add" Grid.Row="6" Grid.Column="3" Margin="1,5">
             <Button.Style>
                 <Style TargetType="Button" >
                     <Setter Property="IsEnabled" Value="True"/>
                     <Style.Triggers>
-                        <DataTrigger Binding="{Binding ElementName=PlWord, Path=Text.Length}" Value="0">
+                        <DataTrigger Binding="{Binding ElementName=PlWordTextBox, Path=Text.Length}" Value="0">
                             <Setter Property="IsEnabled" Value="False"/>
                         </DataTrigger>
-                        <DataTrigger Binding="{Binding ElementName=SpWord, Path=Text.Length}" Value="0">
+                        <DataTrigger Binding="{Binding ElementName=EsWordTextBox, Path=Text.Length}" Value="0">
                             <Setter Property="IsEnabled" Value="False"/>
                         </DataTrigger>
                     </Style.Triggers>

@@ -52,7 +52,7 @@
         </Button>
         <Button Content="Przerwij" Style="{DynamicResource SquareButtonStyle}" Click="Click_GoBack" Grid.Column="6" 
                 Grid.Row="10" Margin="5" Height="35" controls:ButtonHelper.PreserveTextCase="True"/>
-        <Label Name="WordLabel" Content="Testowy tekst" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="5" 
+        <Label Name="WordLabel" Content="{Binding CurrentEsWord}" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="5" 
                HorizontalContentAlignment="Center" VerticalContentAlignment="Center" 
                FontSize="20" FontFamily="Segoe UI Black" FontWeight="Bold" ></Label>
         <controls:MetroProgressBar Minimum="0" Name="ProgressBar" Grid.Row="2" Grid.Column="1" 

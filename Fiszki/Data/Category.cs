@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Fiszki.Data
 {
-    class Category
+    public class Category : DatabaseItem
     {
 
         public int Id { get; set; }
