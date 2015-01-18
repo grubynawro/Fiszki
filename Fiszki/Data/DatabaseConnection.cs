@@ -10,28 +10,23 @@ namespace Fiszki.Data
         private static SQLiteConnection _connection;
 
 
-        static DatabaseConnection()
-        {
-            
-
-        }
+        
 
         public static void Connect()
         {
             if (_connection != null)
             {
-
-            }
-
-            try
-            {
-                _connection = new SQLiteConnection("Data Source=Fisz.s3db");
-                _connection.Open();
-				Debug.Print("połaczenie ok");
-            }
-            catch (Exception)
-            {
-                Debug.Print("Bład połącznia z bazą danych");
+                
+                try
+                {
+                    _connection = new SQLiteConnection("Data Source=Fisz.s3db");
+                    _connection.Open();
+                    Debug.Print("połaczenie ok");
+                }
+                catch (Exception)
+                {
+                    Debug.Print("Bład połącznia z bazą danych");
+                }
             }
         }
 
